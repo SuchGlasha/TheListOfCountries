@@ -7,6 +7,19 @@ public class ListOfCountries {
 
     public ArrayList<Country> list = new ArrayList<Country>();
 
+    public ArrayList<Country> getCountriesByLetter(char L)
+    {
+        ArrayList<Country> smallList = new ArrayList<Country>();
+        for(Country item : list)
+        {
+            if(item.code.charAt(0) == L)
+            {
+                smallList.add(item);
+            }
+        }
+        return smallList;
+    }
+
     ListOfCountries()
     {
         list.add(new Country("Afghanistan", "AF"));
