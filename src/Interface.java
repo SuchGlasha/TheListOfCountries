@@ -1,18 +1,10 @@
 /**
  * Created by Dulya on 28.04.2016.
  */
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Event;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import javax.swing.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.ArrayList;
+import java.awt.*;
+import java.awt.event.*;
 
 public class Interface extends JFrame {
 
@@ -38,19 +30,28 @@ public class Interface extends JFrame {
         return new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT);
     }
 
+    JLabel label = new JLabel("ВЫБЕРИТЕ БУКВУ: ");
     JComboBox countryBox = new JComboBox(country);
-    JTextArea  countryTextArea = new JTextArea(5,10);
+    final JTextArea  countryTextArea = new JTextArea(5,10);
+    //JScrollPane scrollPane = new JScrollPane(countryTextArea);
+    Color newColor = new Color(200, 200, 255,50);
+
 
     private void createGUI()
     {
 
         final JPanel contentPane = new JPanel();
-        contentPane.setLayout(new GridLayout(2,1));
+        contentPane.setLayout(new BorderLayout());
+        //contentPane.setLayout(new GridLayout(2,1));
 
         ActionListener countryBoxListener = new CountryBoxListener();
         countryBox.addActionListener(countryBoxListener);
-        contentPane.add(countryBox);
-        contentPane.add(countryTextArea);
+
+        countryBox.setBackground(Color.LIGHT_GRAY);
+        countryTextArea.setBackground(Color.WHITE);
+       // contentPane.add(label, BorderLayout.NORTH);
+        contentPane.add(countryBox, BorderLayout.NORTH);
+        contentPane.add(countryTextArea, BorderLayout.CENTER);
 
         setContentPane(contentPane);
         pack();
@@ -74,6 +75,8 @@ public class Interface extends JFrame {
                 outText+="Страна: "+item.name+" "+"Код: "+item.code+"\n";
             }
             countryTextArea.setText(outText);
+
+            countryTextArea.setBackground(newColor);
         }
     }
 
