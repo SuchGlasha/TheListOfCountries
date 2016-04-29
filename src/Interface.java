@@ -8,8 +8,8 @@ import java.awt.event.*;
 
 public class Interface extends JFrame {
 
-    private static final int DEFAULT_WIDTH = 600;
-    private static final int DEFAULT_HEIGHT = 600;
+    private static final int DEFAULT_WIDTH = 500;
+    private static final int DEFAULT_HEIGHT = 500;
 
     public Interface(String title) // Конструктор, параметр - название окна
     {
@@ -30,11 +30,12 @@ public class Interface extends JFrame {
         return new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT);
     }
 
-    JLabel label = new JLabel("ВЫБЕРИТЕ БУКВУ: ");
+   // JLabel label = new JLabel("ВЫБЕРИТЕ БУКВУ: ");
     JComboBox countryBox = new JComboBox(country);
     final JTextArea  countryTextArea = new JTextArea(5,10);
     //JScrollPane scrollPane = new JScrollPane(countryTextArea);
-    Color newColor = new Color(200, 200, 255,50);
+    Color countryBoxColor = new Color(138, 227, 155, 50);
+    Color textAreaColor = new Color(255, 193, 193,50);
 
 
     private void createGUI()
@@ -47,7 +48,7 @@ public class Interface extends JFrame {
         ActionListener countryBoxListener = new CountryBoxListener();
         countryBox.addActionListener(countryBoxListener);
 
-        countryBox.setBackground(Color.LIGHT_GRAY);
+        countryBox.setBackground(Color.pink);
         countryTextArea.setBackground(Color.WHITE);
        // contentPane.add(label, BorderLayout.NORTH);
         contentPane.add(countryBox, BorderLayout.NORTH);
@@ -76,7 +77,7 @@ public class Interface extends JFrame {
             }
             countryTextArea.setText(outText);
 
-            countryTextArea.setBackground(newColor);
+            countryTextArea.setBackground(textAreaColor);
         }
     }
 
