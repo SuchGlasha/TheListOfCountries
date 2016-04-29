@@ -1,5 +1,3 @@
-package ru.miet.mp34.popova;
-
 import java.util.ArrayList;
 
 
@@ -12,7 +10,7 @@ public class ListOfCountries {
         ArrayList<Country> smallList = new ArrayList<Country>();
         for(Country item : list)
         {
-            if(item.code.charAt(0) == L)
+            if(item.name.charAt(0) == L)
             {
                 smallList.add(item);
             }
